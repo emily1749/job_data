@@ -480,8 +480,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log('RERENDERED');
-    console.log(this.props.loading);
     // const { city, state } = this.state;
     var self = this;
     return (

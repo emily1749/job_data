@@ -8,6 +8,7 @@ import locationSubmittedReducer from './locationSubmittedReducer';
 import buttonColorReducer from './bubbleColorReducer';
 import stateLocationReducer from './stateLocationReducer';
 import cityLocationReducer from './cityLocationReducer';
+import messageReducer from './messagReducer';
 // import resultArrayReducer from './resultArrayReducer';
 
 export default combineReducers({
@@ -21,4 +22,5 @@ export default combineReducers({
   buttonColor: buttonColorReducer,
   stateLocation: stateLocationReducer,
   cityLocation: cityLocationReducer,
+  message: messageReducer,
 });
