@@ -1,10 +1,11 @@
 import './Loading.css';
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Loading = props => {
+const Loading = ({ message, loading }) => {
   return (
     <div>
-      {props.loading ? (
+      {loading ? (
         <div className='lds-ellipsis'>
           <div></div>
           <div></div>
@@ -13,11 +14,18 @@ const Loading = props => {
         </div>
       ) : (
         <div className='info'>
-          <p>{props.message}</p>
+          <p>{message}</p>
         </div>
       )}
     </div>
   );
 };
 
-export default Loading;
+const mapStateToProps = state => {
+  return {
+    message: state.message,
+    loading: state.jobData.loading,
+  };
+};
+
+export default connect(mapStateToProps)(Loading);

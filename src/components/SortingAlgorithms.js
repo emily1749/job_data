@@ -19,11 +19,23 @@ import InfoBox from './InfoBox';
 import Location from './Location';
 import './index.css';
 
-class App extends React.Component {
+class SortingAlgorithms extends React.Component {
   constructor() {
     super();
     this.state = {
-      resultArray: [],
+      resultArray: [
+        // ['Typescript', 0.2, 0, 0, 0],
+        // ['Ruby', 1.52, 0, 0, 1],
+        // ['Python', 27.21, 0, 0, 2],
+        // ['C++', 22.84, 0, 0, 3],
+        // ['Golang', 0.4, 0, 0, 9],
+        // ['Swift', 2.34, 0, 0, 4],
+        // ['Javascript', 17.16, 0, 0, 5],
+        // ['PHP', 2.44, 0, 0, 6],
+        // ['Java', 17.56, 0, 0, 7],
+        // ['C#', 8.22, 0, 0, 8],
+      ],
+      initialData: false,
     };
   }
 
@@ -482,75 +494,76 @@ class App extends React.Component {
   render() {
     console.log('RERENDERED');
     console.log(this.props.loading);
-    // const { city, state } = this.state;
+    const { city, state } = this.state;
     var self = this;
     return (
-      <div className='container'>
-        <div className='controls-container'>
-          <div className='controls'>
-            <InfoBox />
-            <Location />
+      <div>
+        //{' '}
+        <div className='container'>
+          //{' '}
+          <div className='controls-container'>
+            //{' '}
+            <div className='controls'>
+              <div className='algorithms-container'>
+                <div>
+                  <h2>Sorting Algorithm</h2>
+                </div>
+                <div>
+                  <button
+                    onClick={self.bubbleSort}
+                    className='sortingAlgorithm'
+                    style={{ color: this.props.bubbleColor }}
+                  >
+                    Bubble Sort
+                  </button>
+                </div>
 
-            <div className='algorithms-container'>
-              <div>
-                <h2>Sorting Algorithm</h2>
-              </div>
-              <div>
-                <button
-                  onClick={self.bubbleSort}
-                  className='sortingAlgorithm'
-                  style={{ color: this.props.bubbleColor }}
-                >
-                  Bubble Sort
-                </button>
-              </div>
+                <div>
+                  <button
+                    onClick={self.quickSort}
+                    className='sortingAlgorithm'
+                    style={{ color: this.props.quickColor }}
+                  >
+                    Quick Sort
+                  </button>
+                </div>
 
-              <div>
-                <button
-                  onClick={self.quickSort}
-                  className='sortingAlgorithm'
-                  style={{ color: this.props.quickColor }}
-                >
-                  Quick Sort
-                </button>
-              </div>
+                <div>
+                  <button
+                    onClick={self.mergeSort}
+                    className='sortingAlgorithm'
+                    style={{ color: this.props.mergeColor }}
+                  >
+                    Merge Sort
+                  </button>
+                </div>
 
-              <div>
-                <button
-                  onClick={self.mergeSort}
-                  className='sortingAlgorithm'
-                  style={{ color: this.props.mergeColor }}
-                >
-                  Merge Sort
-                </button>
-              </div>
-
-              <div className='buttonHolder'>
-                <button
-                  className='btn'
-                  style={{ color: this.state.buttonColor }}
-                  onClick={self.resetSort}
-                >
-                  Reset Sort
-                </button>
+                <div className='buttonHolder'>
+                  <button
+                    className='btn'
+                    style={{ color: this.state.buttonColor }}
+                    onClick={self.resetSort}
+                  >
+                    Reset Sort
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div className='barGraph-container'>
-          {this.props.locationSubmitted === false ||
-          this.props.error === true ? (
-            // ||
-            // (this.props.locationSubmitted === true &&
-            //   this.props.loading === true)
-            <Loading
-            // loading={this.props.loading}
-            // message={this.props.message}
-            />
-          ) : (
-            <BarGraph resultArray={this.state.resultArray} />
-          )}
+          <div className='barGraph-container'>
+            {this.props.locationSubmitted === false ||
+            this.props.error === true ? (
+              // ||
+              // (this.props.locationSubmitted === true &&
+              //   this.props.loading === true)
+              <Loading
+                loading={this.props.loading}
+                message={this.props.message}
+              />
+            ) : (
+              <BarGraph resultArray={this.state.resultArray} />
+            )}
+          </div>
         </div>
       </div>
     );
@@ -585,4 +598,4 @@ export default connect(mapStateToProps, {
   fetchJobData,
   setButtonColor,
   // setResultArray,
-})(App);
+})(SortingAlgorithms);

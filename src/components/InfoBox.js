@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InfoControls = () => {
+const InfoBox = () => {
   return (
     <div className='info-container'>
       <h1>Job Skills Data Analysis</h1>
@@ -14,4 +14,4 @@ const InfoControls = () => {
   );
 };
 
-export default InfoControls;
+export default InfoBox;
