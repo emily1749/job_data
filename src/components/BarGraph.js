@@ -14,7 +14,7 @@ const BarGraph = props => {
         ];
 
         return (
-          <div className='bargroup' key={value[1]}>
+          <div className='bargroup' key={value[0]}>
             <div
               className='bar'
               style={{

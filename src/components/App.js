@@ -15,6 +15,8 @@ import {
 
 import Loading from './Loading';
 import BarGraph from './BarGraph';
+import InfoBox from './InfoBox';
+import Location from './Location';
 import './index.css';
 
 class App extends React.Component {
@@ -62,32 +64,32 @@ class App extends React.Component {
     }
   };
 
-  onCityInputChange = e => this.props.setCityLocation(e.target.value);
+  // onCityInputChange = e => this.props.setCityLocation(e.target.value);
 
-  onStateInputChange = e => this.props.setStateLocation(e.target.value);
+  // onStateInputChange = e => this.props.setStateLocation(e.target.value);
 
-  onSubmit = e => {
-    let self = this;
-    e.preventDefault();
+  // onSubmit = e => {
+  //   let self = this;
+  //   e.preventDefault();
 
-    if (this.props.onSort === false) {
-      let city = this.props.cityLocation;
-      let state = this.props.stateLocation;
+  //   if (this.props.onSort === false) {
+  //     let city = this.props.cityLocation;
+  //     let state = this.props.stateLocation;
 
-      if (city && state) {
-        console.log('in here');
-        city = city.replace(' ', '+');
-        this.props.setMergeColor('');
-        this.props.setBubbleColor('');
-        this.props.setQuickColor('');
+  //     if (city && state) {
+  //       console.log('in here');
+  //       city = city.replace(' ', '+');
+  //       this.props.setMergeColor('');
+  //       this.props.setBubbleColor('');
+  //       this.props.setQuickColor('');
 
-        const fetchData = async () => {
-          await this.props.fetchJobData(city, state);
-        };
-        fetchData();
-      }
-    }
-  };
+  //       const fetchData = async () => {
+  //         await this.props.fetchJobData(city, state);
+  //       };
+  //       fetchData();
+  //     }
+  //   }
+  // };
 
   bubbleSort = () => {
     if (
@@ -525,9 +527,9 @@ class App extends React.Component {
       <div className='container'>
         <div className='controls-container'>
           <div className='controls'>
-            {/* <InfoControls /> */}
-
-            <div>
+            <InfoBox />
+            <Location />
+            {/* <div>
               <div>
                 <h2>Location</h2>
               </div>
@@ -570,7 +572,7 @@ class App extends React.Component {
                   </div>
                 </div>
               </form>
-            </div>
+            </div> */}
 
             <div className='algorithms-container'>
               <div>
