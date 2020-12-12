@@ -4,6 +4,7 @@ const initialState = {
   loading: false,
   error: false,
   locationSubmitted: false,
+  message: 'Please enter location',
 };
 
 export default (state = initialState, action) => {
@@ -52,12 +53,13 @@ export default (state = initialState, action) => {
     //   };
     // }
 
-    case 'ERROR_FETCHING':
+    case 'FETCH_ERROR':
       return {
         ...state,
         loading: false,
         error: true,
         locationSubmitted: false,
+        message: "Error loading location's data",
       };
     default:
       return state;

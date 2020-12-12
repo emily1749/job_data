@@ -23,7 +23,7 @@ const Loading = ({ message, loading }) => {
 
 const mapStateToProps = state => {
   return {
-    message: state.message,
+    message: state.jobData.message,
     loading: state.jobData.loading,
   };
 };
