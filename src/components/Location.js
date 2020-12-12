@@ -2,47 +2,55 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import {
-  setOnSort,
   setBubbleColor,
   setQuickColor,
   setMergeColor,
   setCityLocation,
   setStateLocation,
-  setMessage,
   fetchJobData,
-  setButtonColor,
 } from '../actions';
 
-const Location = props => {
+const Location = ({
+  onSort,
+  cityLocation,
+  stateLocation,
+  buttonColor,
+  setBubbleColor,
+  setMergeColor,
+  setQuickColor,
+  setCityLocation,
+  setStateLocation,
+  fetchJobData,
+}) => {
   let city;
   let state;
 
-  const onCityInputChange = e => props.setCityLocation(e.target.value);
+  const onCityInputChange = e => setCityLocation(e.target.value);
 
-  const onStateInputChange = e => props.setStateLocation(e.target.value);
+  const onStateInputChange = e => setStateLocation(e.target.value);
 
   const onLocationSubmit = e => {
-    // let self = this;
     e.preventDefault();
 
-    if (props.onSort === false) {
-      let city = props.cityLocation;
-      let state = props.stateLocation;
+    if (onSort === false) {
+      let city = cityLocation;
+      let state = stateLocation;
 
       if (city && state) {
         console.log('in here');
         city = city.replace(' ', '+');
-        props.setMergeColor('');
-        props.setBubbleColor('');
-        props.setQuickColor('');
+        setMergeColor('');
+        setBubbleColor('');
+        setQuickColor('');
 
         const fetchData = async () => {
-          await props.fetchJobData(city, state);
+          await fetchJobData(city, state);
         };
         fetchData();
       }
     }
   };
+
   return (
     <div>
       <div>
@@ -77,7 +85,7 @@ const Location = props => {
 
           <div>
             <div className='buttonHolder'>
-              <button className='btn' style={{ color: props.buttonColor }}>
+              <button className='btn' style={{ color: buttonColor }}>
                 Submit Location
               </button>
             </div>
@@ -91,29 +99,19 @@ const Location = props => {
 const mapStateToProps = state => {
   return {
     onSort: state.onSort,
-    bubbleColor: state.bubbleColor,
-    quickColor: state.quickColor,
-    mergeColor: state.mergeColor,
     cityLocation: state.cityLocation,
     stateLocation: state.stateLocation,
-    message: state.message,
-    loading: state.jobData.loading,
-    jobDataCopy: state.jobData.jobDataCopy,
-    error: state.jobData.error,
-    locationSubmitted: state.jobData.locationSubmitted,
-    // resultArray: state.jobData.resultArray,
+    buttonColor: state.buttonColor,
   };
 };
 
-export default connect(mapStateToProps, {
-  setOnSort,
+const mapDispatchToProps = {
   setBubbleColor,
   setMergeColor,
   setQuickColor,
   setCityLocation,
   setStateLocation,
-  setMessage,
   fetchJobData,
-  setButtonColor,
-  // setResultArray,
-})(Location);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Location);
