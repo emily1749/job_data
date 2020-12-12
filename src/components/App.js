@@ -34,10 +34,14 @@ class App extends React.Component {
   }
 
   resetSort = e => {
-    console.log(this.props.jobDataCopy);
+    // console.log(this.props.jobDataCopy);
     let self = this;
     console.log('on sort reset');
-    if (this.props.onSort === false && this.props.locationSubmitted === true) {
+    if (
+      this.props.onSort === false &&
+      this.props.locationSubmitted === true &&
+      this.props.loading === false
+    ) {
       let dataArray = [...this.props.jobDataCopy];
       dataArray.forEach(element => {
         element[2] = 0;
@@ -58,7 +62,8 @@ class App extends React.Component {
       this.props.quickColor === '' &&
       this.props.mergeColor === '' &&
       this.props.onSort === false &&
-      this.props.locationSubmitted === true
+      this.props.locationSubmitted === true &&
+      this.props.loading === false
     ) {
       this.props.setBubbleColor('#f08a5d');
       this.props.setOnSort(true);
@@ -156,7 +161,8 @@ class App extends React.Component {
       this.props.quickColor === '' &&
       this.props.mergeColor === '' &&
       this.props.onSort === false &&
-      this.props.locationSubmitted === true
+      this.props.locationSubmitted === true &&
+      this.props.loading === false
     ) {
       this.props.setQuickColor('#f08a5d');
       this.props.setOnSort(true);
@@ -300,7 +306,8 @@ class App extends React.Component {
       this.props.quickColor === '' &&
       this.props.mergeColor === '' &&
       this.props.onSort === false &&
-      this.props.locationSubmitted === true
+      this.props.locationSubmitted === true &&
+      this.props.loading === false
     ) {
       this.props.setOnSort(true);
       this.props.setMergeColor('#f08a5d');

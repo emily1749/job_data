@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
     case 'TOGGLE_LOADING':
       return {
         ...state,
-        loading: !state.loading,
+        loading: true,
       };
     case 'STORE_VALUE':
       // if (state.jobDataCopy === []) {
@@ -40,6 +40,7 @@ export default (state = initialState, action) => {
       const resultArrayCopy = JSON.parse(JSON.stringify(resultArrayFetch));
 
       return {
+        ...state,
         jobDataCopy: [...resultArrayCopy],
         // resultArray: [...resultArrayCopy],
         loading: false,
