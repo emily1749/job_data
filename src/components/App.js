@@ -487,7 +487,6 @@ class App extends React.Component {
   };
 
   render() {
-    // const { city, state } = this.state;
     var self = this;
     return (
       <div className='container'>
@@ -545,14 +544,9 @@ class App extends React.Component {
 
         <div className='barGraph-container'>
           {this.props.locationSubmitted === false ||
+          this.props.loading === true ||
           this.props.error === true ? (
-            // ||
-            // (this.props.locationSubmitted === true &&
-            //   this.props.loading === true)
-            <Loading
-            // loading={this.props.loading}
-            // message={this.props.message}
-            />
+            <Loading />
           ) : (
             <BarGraph resultArray={this.state.resultArray} />
           )}
@@ -570,12 +564,11 @@ const mapStateToProps = state => {
     mergeColor: state.mergeColor,
     cityLocation: state.cityLocation,
     stateLocation: state.stateLocation,
-    // message: state.message,
+    buttonColor: state.buttonColor,
     loading: state.jobData.loading,
     jobDataCopy: state.jobData.jobDataCopy,
     error: state.jobData.error,
     locationSubmitted: state.jobData.locationSubmitted,
-    // resultArray: state.jobData.resultArray,
   };
 };
 
@@ -586,8 +579,6 @@ export default connect(mapStateToProps, {
   setQuickColor,
   setCityLocation,
   setStateLocation,
-  // setMessage,
   fetchJobData,
   setButtonColor,
-  // setResultArray,
 })(App);
