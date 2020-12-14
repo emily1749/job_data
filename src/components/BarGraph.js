@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.css';
 
 const BarGraph = ({ resultArray }) => {
@@ -28,6 +29,10 @@ const BarGraph = ({ resultArray }) => {
   });
 
   return <div className='barGraph'>{mapBarGraph}</div>;
+};
+
+BarGraph.propTypes = {
+  resultArray: PropTypes.array.isRequired,
 };
 
 export default BarGraph;

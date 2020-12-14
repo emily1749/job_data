@@ -90,6 +90,7 @@ describe('(Component) UserInput', () => {
     const userStateLocation = 'Massachusetts';
     wrapper
       .find('.input-text-state')
+      //   .find('.submit-form')
       .simulate('change', { target: { value: userStateLocation } });
     expect(onStateInputChange.calledOnce);
     // ('onCityInputChange')(userCityLocation);
