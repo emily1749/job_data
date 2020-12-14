@@ -57,7 +57,7 @@ const Location = ({
         <h2>Location</h2>
       </div>
 
-      <form onSubmit={onLocationSubmit}>
+      <form className='submit-form' onSubmit={onLocationSubmit}>
         <div className='location-container'>
           <div>
             <label>City:</label>
@@ -65,7 +65,7 @@ const Location = ({
             <input
               type='text'
               name='city'
-              className='input-text'
+              className='input-text input-text-city'
               value={city}
               onChange={onCityInputChange}
             />
@@ -77,7 +77,7 @@ const Location = ({
             <input
               type='text'
               name='state'
-              className='input-text'
+              className='input-text input-text-state'
               value={state}
               onChange={onStateInputChange}
             />

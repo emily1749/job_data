@@ -23,6 +23,9 @@ const initialState = {
 const store = mockStore(initialState);
 
 const onCityInputChange = sinon.spy();
+const onStateInputChange = sinon.spy();
+const onLocationSubmit = sinon.spy();
+// const onStateInputChange = '';
 // const onSubmit = sinon.spy();
 // const changeUserLocationSpy = sinon.spy();
 // const removeTechnologySpy = sinon.spy();
@@ -33,6 +36,8 @@ const wrapper = mount(
   <Provider store={store}>
     <Location
       onCityInputChange={onCityInputChange}
+      onStateInputChange={onStateInputChange}
+      onLocationSubmit={onLocationSubmit}
       //   allTechs={['javascript', 'git', 'jquery', 'sass', 'rails', 'kafka', 'aws', 'graphql', 'bootstrap', 'rust', 'docker', 'redux', 'react native', 'express', 'react', 'vue', 'd3', 'ember', 'django', 'flask', 'sql', 'java', 'c#', 'python', 'php', 'c++', 'c', 'clojure', 'typescript', 'ruby', 'swift', 'objective-c', '.net', 'assembly', 'r', 'perl', 'vba', 'matlab', 'golang', 'scala', 'haskell', 'node', 'angular', '.net core', 'cordova', 'mysql', 'sqlite', 'postgresql', 'mongodb', 'oracle', 'redis', 'html', 'css'].sort()}
       //   onSubmit={onSubmit}
       //   changeUserLocation={changeUserLocationSpy}
@@ -72,6 +77,33 @@ describe('(Component) UserInput', () => {
     expect(actions[1]).to.deep.equal(expectedStatePayload);
   });
 
+  it('should execute onCityInputChange onChange of user city location', () => {
+    const userCityLocation = 'Worcester';
+    wrapper
+      .find('.input-text-city')
+      .simulate('change', { target: { value: userCityLocation } });
+    expect(onCityInputChange.calledOnce);
+    // ('onCityInputChange')(userCityLocation);
+  });
+
+  it('should execute onStateInputChange onChange of user state location', () => {
+    const userStateLocation = 'Massachusetts';
+    wrapper
+      .find('.input-text-state')
+      .simulate('change', { target: { value: userStateLocation } });
+    expect(onStateInputChange.calledOnce);
+    // ('onCityInputChange')(userCityLocation);
+  });
+
+  it('should execute onLocationSubmit onSubmit of user state location', () => {
+    wrapper.find('.submit-form').simulate('submit');
+    expect(onLocationSubmit.calledOnce);
+  });
+
+  //   it('should call onCityInputChange when city input changes', () => {
+  //     wrapper.find('.input-text-city').simulate('change');
+  //     expect(onC)
+  //   });
   //   it('should return state when setStateLocation is dispatched', () => {
   //     let userStateLocation = 'Massachusetts';
   //     store.dispatch(actionCreators.setStateLocation(userStateLocation));
