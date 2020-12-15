@@ -13,6 +13,7 @@
     "react-redux": "^7.2.2",
     "react-scripts": "4.0.1",
     "redux": "^4.0.5",
+    "redux-promise-middleware": "^6.1.2",
     "redux-thunk": "^2.3.0",
     "sinon": "^9.2.2",
     "web-vitals": "^0.2.4"
@@ -43,8 +44,10 @@
   },
   "devDependencies": {
     "@wojtekmaj/enzyme-adapter-react-17": "^0.3.2",
+    "chai-jest": "^1.0.1",
     "check-prop-types": "^1.1.2",
     "enzyme": "^3.11.0",
-    "redux-mock-store": "^1.5.4"
+    "redux-mock-store": "^1.5.4",
+    "snapshot": "0.0.0"
   }
 }

@@ -62,6 +62,16 @@ describe('redux properties', () => {
     expect(buttonColorProp).toBe(buttonColor);
   });
 
+  // test('has access to "loading" state', () => {
+  //   const jobData = {
+  //     error: false,
+  //     jobDataCopy: [],
+  //     loading: false,
+  //     locationSubmitted: false,
+  //     message: 'Please enter location',
+  //   };
+  //   const wrapper = setup();
+  // });
   //   test('has access to "jobDataCopy" state', () => {
   //     const jobData = {
   //       error: false,
