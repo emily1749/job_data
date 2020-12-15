@@ -19,7 +19,7 @@ import InfoBox from './InfoBox';
 import Location from './Location';
 import './index.css';
 
-class App extends React.Component {
+export class UnconnectedApp extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -581,4 +581,4 @@ export default connect(mapStateToProps, {
   setStateLocation,
   fetchJobData,
   setButtonColor,
-})(App);
+})(UnconnectedApp);
