@@ -1,12 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App Component renders correctly 1`] = `
+exports[`Loading Component renders 1`] = `
 <div>
   <div
     className="info"
   >
     <p>
       Please enter location
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Loading Component renders a loading message when loading is true 1`] = `
+<div>
+  <div
+    className="lds-ellipsis"
+  >
+    <div />
+    <div />
+    <div />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Loading Component renders an error message when a network error occurs 1`] = `
+<div>
+  <div
+    className="info"
+  >
+    <p>
+      Error loading location's data
     </p>
   </div>
 </div>

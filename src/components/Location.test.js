@@ -101,6 +101,17 @@ describe('(Component) UserInput', () => {
     expect(onLocationSubmit.calledOnce);
   });
 
+  // it('calls onStateInputChange onChange of user state location', ()=>{
+  //   props={
+  //     onSort: false,
+  //     cityLocation: '',
+  //     stateLocation: '',
+  //     buttonColor: '',
+  //   }
+  //   props.onStateInputChange = jest.fn();
+  //   const wrapper = shallow(<Location {...props})
+  // })
+
   //   it('should call onCityInputChange when city input changes', () => {
   //     wrapper.find('.input-text-city').simulate('change');
   //     expect(onC)

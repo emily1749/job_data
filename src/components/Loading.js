@@ -2,7 +2,7 @@ import './Loading.css';
 import React from 'react';
 import { connect } from 'react-redux';
 
-const Loading = ({ message, loading }) => {
+export const Loading = ({ message, loading }) => {
   return (
     <div>
       {loading ? (
