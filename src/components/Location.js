@@ -10,31 +10,31 @@ import {
   fetchJobData,
 } from '../actions';
 
-const Location = ({
-  onSort,
-  cityLocation,
-  stateLocation,
-  buttonColor,
-  setBubbleColor,
-  setMergeColor,
-  setQuickColor,
-  setCityLocation,
-  setStateLocation,
-  fetchJobData,
-}) => {
-  let city;
-  let state;
+export class Location extends React.Component {
+  // onSort,
+  // cityLocation,
+  // stateLocation,
+  // buttonColor,
+  // setBubbleColor,
+  // setMergeColor,
+  // setQuickColor,
+  // setCityLocation,
+  // setStateLocation,
+  // fetchJobData,
+  // }) => {
 
-  const onCityInputChange = e => setCityLocation(e.target.value);
+  onCityInputChange = e => this.props.setCityLocation(e.target.value);
 
-  const onStateInputChange = e => setStateLocation(e.target.value);
+  onStateInputChange = e => this.props.setStateLocation(e.target.value);
 
-  const onLocationSubmit = e => {
+  onLocationSubmit = e => {
+    let self = this;
+    console.log('hre');
     e.preventDefault();
 
-    if (onSort === false) {
-      let city = cityLocation;
-      let state = stateLocation;
+    if (this.props.onSort === false) {
+      let city = this.props.cityLocation;
+      let state = this.props.stateLocation;
 
       if (city && state) {
         console.log('in here');
@@ -44,57 +44,64 @@ const Location = ({
         setQuickColor('');
 
         const fetchData = async () => {
-          await fetchJobData(city, state);
+          await self.props.fetchJobData(city, state);
         };
         fetchData();
       }
     }
   };
-
-  return (
-    <div>
+  render() {
+    let city;
+    let state;
+    let self = this;
+    return (
       <div>
-        <h2>Location</h2>
-      </div>
+        <div>
+          <h2>Location</h2>
+        </div>
 
-      <form className='submit-form' onSubmit={onLocationSubmit}>
-        <div className='location-container'>
-          <div>
-            <label>City:</label>
+        <form className='submit-form' onSubmit={self.onLocationSubmit}>
+          <div className='location-container'>
+            <div>
+              <label>City:</label>
 
-            <input
-              type='text'
-              name='city'
-              className='input-text input-text-city'
-              value={city}
-              onChange={onCityInputChange}
-            />
-          </div>
+              <input
+                type='text'
+                name='city'
+                className='input-text input-text-city'
+                value={this.props.city}
+                onChange={this.onCityInputChange}
+              />
+            </div>
 
-          <div>
-            <label>State:</label>
+            <div>
+              <label>State:</label>
 
-            <input
-              type='text'
-              name='state'
-              className='input-text input-text-state'
-              value={state}
-              onChange={onStateInputChange}
-            />
-          </div>
+              <input
+                type='text'
+                name='state'
+                className='input-text input-text-state'
+                value={this.props.state}
+                onChange={this.onStateInputChange}
+              />
+            </div>
 
-          <div>
-            <div className='buttonHolder'>
-              <button className='btn' style={{ color: buttonColor }}>
-                Submit Location
-              </button>
+            <div>
+              <div className='buttonHolder'>
+                <button
+                  className='btn'
+                  style={{ color: this.props.buttonColor }}
+                >
+                  Submit Location
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </form>
-    </div>
-  );
-};
+        </form>
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = state => {
   return {

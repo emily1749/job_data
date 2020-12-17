@@ -59,7 +59,6 @@ describe('Loading Component', () => {
   });
 
   it('renders a loading message when loading is true', () => {
-    initialState.jobData.error = false;
     initialState.jobData.loading = true;
 
     const tree = setup(props);
