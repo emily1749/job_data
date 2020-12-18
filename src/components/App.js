@@ -19,7 +19,7 @@ import InfoBox from './InfoBox';
 import Location from './Location';
 import './index.css';
 
-export class UnconnectedApp extends React.Component {
+export class App extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -57,6 +57,7 @@ export class UnconnectedApp extends React.Component {
   };
 
   bubbleSort = () => {
+    console.log("here")
     if (
       this.props.bubbleColor === '' &&
       this.props.quickColor === '' &&
@@ -70,7 +71,7 @@ export class UnconnectedApp extends React.Component {
       this.props.setButtonColor('#00587a');
 
       console.log('on bubblesort');
-
+      console.log('here2')
       let self = this;
       let count = 0;
       let round = 0;
@@ -502,7 +503,7 @@ export class UnconnectedApp extends React.Component {
               <div>
                 <button
                   onClick={self.bubbleSort}
-                  className='sortingAlgorithm'
+                  className='sortingAlgorithm bubbleSortingAlgorithm'
                   style={{ color: this.props.bubbleColor }}
                 >
                   Bubble Sort
@@ -581,4 +582,4 @@ export default connect(mapStateToProps, {
   setStateLocation,
   fetchJobData,
   setButtonColor,
-})(UnconnectedApp);
+})(App);

@@ -22,6 +22,12 @@ const defaultProps = {
 
 const wrapper = mount(<BarGraph {...defaultProps} />);
 
-test('BarGraph Component renders', () => {
-  expect(wrapper.length).toBe(1);
+describe('BarGraph Component', () => {
+  it('BarGraph Component renders', () => {
+    expect(wrapper.length).toBe(1);
+  });
+
+  it("it renders the graph's bars correctly", () => {
+    expect(wrapper.find('.bar').length).toBe(10);
+  });
 });
