@@ -57,7 +57,7 @@ export class App extends React.Component {
   };
 
   bubbleSort = () => {
-    console.log("here")
+    console.log('here');
     if (
       this.props.bubbleColor === '' &&
       this.props.quickColor === '' &&
@@ -71,7 +71,7 @@ export class App extends React.Component {
       this.props.setButtonColor('#00587a');
 
       console.log('on bubblesort');
-      console.log('here2')
+      console.log('here2');
       let self = this;
       let count = 0;
       let round = 0;
@@ -513,7 +513,7 @@ export class App extends React.Component {
               <div>
                 <button
                   onClick={self.quickSort}
-                  className='sortingAlgorithm'
+                  className='sortingAlgorithm quickSortingAlgorithm'
                   style={{ color: this.props.quickColor }}
                 >
                   Quick Sort
@@ -523,7 +523,7 @@ export class App extends React.Component {
               <div>
                 <button
                   onClick={self.mergeSort}
-                  className='sortingAlgorithm'
+                  className='sortingAlgorithm mergeSortingAlgorithm'
                   style={{ color: this.props.mergeColor }}
                 >
                   Merge Sort

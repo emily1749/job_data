@@ -67,19 +67,7 @@ describe('App Component', () => {
     expect(wrapper.length).toBe(1);
   });
 
-  it('execute onStateInputChange onClick of bubble sort button', () => {
-    // let stateLocation = 'Massachusetts';
-    // const setStateLocation = jest.fn();
-    // props.setStateLocation = setStateLocation;
-    // const wrapper = shallow(<Location {...props} />);
-    // const spy = jest.spyOn(wrapper.instance().props, 'setStateLocation');
-
-    // wrapper
-    //   .find('.input-text-state')
-    //   .simulate('change', { target: { value: stateLocation } });
-
-    // expect(setStateLocation).toHaveBeenCalled();
-
+  it('execute bubbleSort function onClick of bubble sort button', () => {
     const wrapper = shallow(<App {...props} />);
     const instance = wrapper.instance();
     instance.bubbleSort = jest.fn();
@@ -88,26 +76,178 @@ describe('App Component', () => {
     wrapper
       .find('button')
       .first()
-      .simulate(
-        'click'
-        // , { target: { value: stateLocation } }
-      );
+      .simulate('click');
     expect(instance.bubbleSort).toHaveBeenCalled();
-    // const spy = jest.spyOn(App.prototype, 'bubbleSort');
-    // const wrapper = setup(props);
-    // console.log(wrapper.debug());
-    // const spy = jest.spyOn(wrapper.find('button').first());
-    // this.props.setBubbleColor('#f08a5d');
-    // const setBubbleColor = jest.fn();
-    // props.setBubbleColor = setBubbleColor;
-    // const wrapper = shallow(<App {...props} />);
-    // // const spy = jest.spyOn(wrapper.instance().props, 'setBubbleColor');
-    // wrapper.find('.bubbleSortingAlgorithm').simulate(
-    //   'click'
-    //   // , { target: { value: stateLocation } }
-    // );
-    // expect(setBubbleColor).toHaveBeenCalled();
   });
+
+  it('execute quickSort function onClick of quick sort button', () => {
+    const wrapper = shallow(<App {...props} />);
+    const instance = wrapper.instance();
+    instance.quickSort = jest.fn();
+    const spy = jest.spyOn(instance, 'quickSort');
+    instance.forceUpdate();
+    wrapper.find('.quickSortingAlgorithm').simulate('click');
+    expect(instance.quickSort).toHaveBeenCalled();
+  });
+
+  it('execute mergeSort function onClick of merge sort button', () => {
+    const wrapper = shallow(<App {...props} />);
+    const instance = wrapper.instance();
+    instance.mergeSort = jest.fn();
+    const spy = jest.spyOn(instance, 'mergeSort');
+    instance.forceUpdate();
+    wrapper.find('.mergeSortingAlgorithm').simulate('click');
+    expect(instance.mergeSort).toHaveBeenCalled();
+  });
+
+  // it('execute componentDidUpdate when jobData state updates', () => {
+  //   let arr = [
+  //     ['Typescript', 0.2, 0],
+  //     ['Ruby', 1.52, 0],
+  //     ['Python', 27.21, 0],
+  //     ['C++', 22.84, 0],
+  //     ['Golang', 0.4, 0],
+  //     ['Swift', 2.34, 0],
+  //     ['Javascript', 17.16, 0],
+  //     ['PHP', 2.44, 0],
+  //     ['Java', 17.56, 0],
+  //     ['C#', 8.22, 0],
+  //   ];
+  //   const wrapper = shallow(<App {...props} />);
+  //   const instance = wrapper.instance();
+  //   instance.componentDidUpdate = jest.fn();
+  //   const spy = jest.spyOn(instance, 'componentDidUpdate');
+  //   instance.forceUpdate();
+
+  //   wrapper.setProps({
+  //     jobData: {
+  //       loading: false,
+  //       jobDataCopy: arr,
+  //       error: false,
+  //       locationSubmitted: true,
+  //       message: '',
+  //     },
+  //   });
+  //   // instance.forceUpdate();
+  //   expect(instance.componentDidUpdate).toHaveBeenCalled();
+  // });
+
+  // it('calls"componentDidMount" when jobData state updates', () => {
+  //   const wrapper = shallow(<App {...props} />);
+  //   const instance = wrapper.instance();
+  //   jest.spyOn(instance, 'componentDidUpdate');
+  //   instance.componentDidMount();
+  //   expect(instance.co)
+  // });
+  // it('componentDidMount updates jobData state', () => {
+  //   // App.prototype.setState = jest.fn();
+  //   const spy = sinon.spy(App.prototype, 'componentDidUpdate');
+  //   const wrapper = shallow(<App {...props} />);
+  //   wrapper.setProps({
+  //     jobData: {
+  //       loading: false,
+  //       jobDataCopy: [],
+  //       error: false,
+  //       locationSubmitted: false,
+  //       message: '',
+  //     },
+  //   });
+  //   expect(spy.calledOnce).toBe(false);
+  //   // const wrapper = setup(props);
+  //   console.log(wrapper.debug());
+  //   // const spy = jest.spyOn(React, 'setState');
+  //   let arr = [
+  //     ['Typescript', 0.2, 0],
+  //     ['Ruby', 1.52, 0],
+  //     ['Python', 27.21, 0],
+  //     ['C++', 22.84, 0],
+  //     ['Golang', 0.4, 0],
+  //     ['Swift', 2.34, 0],
+  //     ['Javascript', 17.16, 0],
+  //     ['PHP', 2.44, 0],
+  //     ['Java', 17.56, 0],
+  //     ['C#', 8.22, 0],
+  //   ];
+  //   wrapper.setProps({
+  //     jobData: {
+  //       loading: false,
+  //       jobDataCopy: arr,
+  //       error: false,
+  //       locationSubmitted: true,
+  //       message: '',
+  //     },
+  //     // jobDataCopy: arr,
+  //     // locationSubmitted: true,
+  //   });
+  //   // wrapper.instance().prevProps.jobDataCopy;
+  //   wrapper.instance().componentDidUpdate();
+  //   // expect(wrapper.instance().props.jobData.jobDataCopy.length).toBe(10);
+  //   expect(wrapper.instance().state.resultArray.length).toBe(10);
+
+  //   // expect(spy.calledOnce).toBe(true);
+
+  //   // console.log(wrapper.debug());
+  //   // expect(
+  //   //   wrapper
+  //   //     .find('BarGraph')
+  //   //     // .dive()
+  //   //     .props('resultArray')
+  //   // ).toEqual(arr);
+
+  //   // const wrapper = shallow(<Location {...props} />);
+  //   // const spy = jest.spyOn(wrapper.instance().props, 'setCityLocation');
+
+  //   // wrapper
+  //   //   .find('input')
+  //   //   .first()
+  //   //   .simulate('change', { target: { value: cityLocation } });
+
+  //   // expect(setCityLocation).toHaveBeenCalled();
+  //   // wrapper.setProps({props.jobData.jobDataCopy: {["Javascript"]}})
+  // });
+
+  // it('execute onStateInputChange onClick of bubble sort button', () => {
+
+  //   // let stateLocation = 'Massachusetts';
+  //   // const setStateLocation = jest.fn();
+  //   // props.setStateLocation = setStateLocation;
+  //   // const wrapper = shallow(<Location {...props} />);
+  //   // const spy = jest.spyOn(wrapper.instance().props, 'setStateLocation');
+
+  //   // wrapper
+  //   //   .find('.input-text-state')
+  //   //   .simulate('change', { target: { value: stateLocation } });
+
+  //   // expect(setStateLocation).toHaveBeenCalled();
+
+  //   const wrapper = shallow(<App {...props} />);
+  //   const instance = wrapper.instance();
+  //   instance.bubbleSort = jest.fn();
+  //   const spy = jest.spyOn(instance, 'bubbleSort');
+  //   instance.forceUpdate();
+  //   wrapper
+  //     .find('button')
+  //     .first()
+  //     .simulate(
+  //       'click'
+  //       // , { target: { value: stateLocation } }
+  //     );
+  //   expect(instance.bubbleSort).toHaveBeenCalled();
+  //   // const spy = jest.spyOn(App.prototype, 'bubbleSort');
+  //   // const wrapper = setup(props);
+  //   // console.log(wrapper.debug());
+  //   // const spy = jest.spyOn(wrapper.find('button').first());
+  //   // this.props.setBubbleColor('#f08a5d');
+  //   // const setBubbleColor = jest.fn();
+  //   // props.setBubbleColor = setBubbleColor;
+  //   // const wrapper = shallow(<App {...props} />);
+  //   // // const spy = jest.spyOn(wrapper.instance().props, 'setBubbleColor');
+  //   // wrapper.find('.bubbleSortingAlgorithm').simulate(
+  //   //   'click'
+  //   //   // , { target: { value: stateLocation } }
+  //   // );
+  //   // expect(setBubbleColor).toHaveBeenCalled();
+  // });
 
   // it('calls"componentDidMount" when jobData state updates', () => {
   //   const wrapper = shallow(<App {...props} />);
