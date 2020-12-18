@@ -1,8 +1,9 @@
+//DONE GOOD :)
+
 import React from 'react';
 import { mount } from 'enzyme';
-import { expect } from 'chai';
+
 import BarGraph from './BarGraph';
-import { checkProps } from '../test/testUtils';
 
 const defaultProps = {
   resultArray: [
@@ -21,10 +22,6 @@ const defaultProps = {
 
 const wrapper = mount(<BarGraph {...defaultProps} />);
 
-test('does not throw warning with expected props', () => {
-  checkProps(BarGraph, defaultProps);
-});
-
 test('BarGraph Component renders', () => {
-  expect(wrapper).to.have.length(1);
+  expect(wrapper.length).toBe(1);
 });

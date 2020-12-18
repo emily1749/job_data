@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import {
   setBubbleColor,
@@ -11,25 +12,12 @@ import {
 } from '../actions';
 
 export class Location extends React.Component {
-  // onSort,
-  // cityLocation,
-  // stateLocation,
-  // buttonColor,
-  // setBubbleColor,
-  // setMergeColor,
-  // setQuickColor,
-  // setCityLocation,
-  // setStateLocation,
-  // fetchJobData,
-  // }) => {
-
   onCityInputChange = e => this.props.setCityLocation(e.target.value);
 
   onStateInputChange = e => this.props.setStateLocation(e.target.value);
 
   onLocationSubmit = e => {
     let self = this;
-    console.log('hre');
     e.preventDefault();
 
     if (this.props.onSort === false) {
@@ -37,7 +25,6 @@ export class Location extends React.Component {
       let state = this.props.stateLocation;
 
       if (city && state) {
-        console.log('in here');
         city = city.replace(' ', '+');
         setMergeColor('');
         setBubbleColor('');
@@ -119,6 +106,13 @@ const mapDispatchToProps = {
   setCityLocation,
   setStateLocation,
   fetchJobData,
+};
+
+Location.propTypes = {
+  onSort: PropTypes.bool.isRequired,
+  cityLocation: PropTypes.string.isRequired,
+  stateLocation: PropTypes.string.isRequired,
+  buttonColor: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Location);

@@ -1,12 +1,12 @@
 //DONE!! GOOD :)
 
 import React from 'react';
-import Loading from './Loading';
 import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-
 import thunk from 'redux-thunk';
+
+import Loading from './Loading';
 
 const initialState = {
   jobData: {
