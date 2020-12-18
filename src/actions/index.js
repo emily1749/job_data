@@ -57,12 +57,12 @@ export const setMergeColor = color => {
   };
 };
 
-export const setlocationSubmitted = bool => {
-  return {
-    type: 'LOCATION_SUBMITTED',
-    payload: bool,
-  };
-};
+// export const setlocationSubmitted = bool => {
+//   return {
+//     type: 'LOCATION_SUBMITTED',
+//     payload: bool,
+//   };
+// };
 
 export const setButtonColor = color => {
   return {
@@ -71,9 +71,9 @@ export const setButtonColor = color => {
   };
 };
 
-export const setMessage = msg => {
-  return {
-    type: 'MESSAGE',
-    payload: msg,
-  };
-};
+// export const setMessage = msg => {
+//   return {
+//     type: 'MESSAGE',
+//     payload: msg,
+//   };
+// };

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import {
   setOnSort,
   setBubbleColor,
@@ -532,7 +533,7 @@ export class App extends React.Component {
 
               <div className='buttonHolder'>
                 <button
-                  className='btn'
+                  className='btn resetSortBtn'
                   style={{ color: this.state.buttonColor }}
                   onClick={self.resetSort}
                 >
@@ -571,6 +572,14 @@ const mapStateToProps = state => {
     error: state.jobData.error,
     locationSubmitted: state.jobData.locationSubmitted,
   };
+};
+
+App.propTypes = {
+  resultArray: PropTypes.array,
+  onSort: PropTypes.bool.isRequired,
+  bubbleColor: PropTypes.string.isRequired,
+  quickColor: PropTypes.string.isRequired,
+  mergeColor: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps, {

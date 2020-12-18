@@ -100,6 +100,15 @@ describe('App Component', () => {
     expect(instance.mergeSort).toHaveBeenCalled();
   });
 
+  it('execute resetSort function onClick of reset button', () => {
+    const wrapper = shallow(<App {...props} />);
+    const instance = wrapper.instance();
+    instance.resetSort = jest.fn();
+    const spy = jest.spyOn(instance, 'resetSort');
+    instance.forceUpdate();
+    wrapper.find('.resetSortBtn').simulate('click');
+    expect(instance.resetSort).toHaveBeenCalled();
+  });
   // it('execute componentDidUpdate when jobData state updates', () => {
   //   let arr = [
   //     ['Typescript', 0.2, 0],
