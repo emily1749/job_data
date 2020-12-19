@@ -1,4 +1,4 @@
-import quickColorReducer from './quickColorReducer';
+import quickColorReducer from '../../reducers/quickColorReducer';
 
 test('quickColorReducer returns default initial state of "" when an action is passed', () => {
   const newState = quickColorReducer(undefined, {});

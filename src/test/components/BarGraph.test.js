@@ -1,9 +1,7 @@
-//DONE GOOD :)
-
 import React from 'react';
 import { mount } from 'enzyme';
 
-import BarGraph from './BarGraph';
+import BarGraph from '../../components/BarGraph';
 
 const defaultProps = {
   resultArray: [
@@ -23,7 +21,7 @@ const defaultProps = {
 const wrapper = mount(<BarGraph {...defaultProps} />);
 
 describe('BarGraph Component', () => {
-  it('BarGraph Component renders', () => {
+  it('renders', () => {
     expect(wrapper.length).toBe(1);
   });
 

@@ -18,7 +18,7 @@ import Loading from './Loading';
 import BarGraph from './BarGraph';
 import InfoBox from './InfoBox';
 import Location from './Location';
-import './index.css';
+import '../index.css';
 
 export class App extends React.Component {
   constructor() {

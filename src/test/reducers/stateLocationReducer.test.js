@@ -1,4 +1,4 @@
-import stateLocationReducer from './stateLocationReducer';
+import stateLocationReducer from '../../reducers/stateLocationReducer';
 
 test('stateLocationReducer returns default initial state of "" when an action is passed', () => {
   const newState = stateLocationReducer(undefined, {});

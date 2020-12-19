@@ -1,4 +1,4 @@
-import onSortReducer from './onSortReducer';
+import onSortReducer from '../../reducers/onSortReducer';
 
 test('onSortReducer returns default initial state of "" when an action is passed', () => {
   const newState = onSortReducer(undefined, {});

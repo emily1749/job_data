@@ -1,5 +1,3 @@
-//DONE GOOD :)
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import { mount } from 'enzyme';
@@ -7,8 +5,7 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { Location } from './Location';
-import * as actionCreators from '../actions';
+import { Location } from '../../components/Location';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -44,30 +41,6 @@ describe('Location Component', () => {
     const wrapper = setup(props);
     expect(wrapper.length).toBe(1);
   });
-
-  // it('should return city when setCityLocation is dispatched', () => {
-  //   let userCityLocation = 'Worcester';
-  //   store.dispatch(actionCreators.setCityLocation(userCityLocation));
-  //   const actions = store.getActions();
-  //   const expectedPayload = {
-  //     type: 'CITY_LOCATION',
-  //     payload: userCityLocation,
-  //   };
-
-  //   expect(actions).toEqual([expectedPayload]);
-  // });
-
-  // it('should return state when setStateLocation is dispatched', () => {
-  //   let userStateLocation = 'Massachusetts';
-  //   store.dispatch(actionCreators.setStateLocation(userStateLocation));
-  //   const actions = store.getActions();
-  //   const expectedStatePayload = {
-  //     type: 'STATE_LOCATION',
-  //     payload: userStateLocation,
-  //   };
-
-  //   expect(actions[1]).toEqual(expectedStatePayload);
-  // });
 
   it('execute onCityInputChange onChange of user city location', () => {
     let cityLocation = 'Worcester';
@@ -113,7 +86,6 @@ describe('Location Component', () => {
   });
 
   it('execute fetchJobData onSubmit of user state location', () => {
-    // let stateLocation = 'Massachusetts';
     const fakeEvent = { preventDefault: () => console.log('prevent default') };
     props.cityLocation = 'Worcester';
     props.stateLocation = 'Massachusetts';
@@ -123,7 +95,6 @@ describe('Location Component', () => {
     const spy = jest.spyOn(wrapper.instance().props, 'fetchJobData');
 
     wrapper.find('form').simulate('submit', fakeEvent);
-    // expect(wrapper.find('form').length).toBe(1);
     expect(fetchJobData).toHaveBeenCalled();
   });
 });

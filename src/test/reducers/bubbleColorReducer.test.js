@@ -1,4 +1,4 @@
-import bubbleColorReducer from './bubbleColorReducer';
+import bubbleColorReducer from '../../reducers/bubbleColorReducer';
 
 test('bubbleColorReducer returns default initial state of "" when an action is passed', () => {
   const newState = bubbleColorReducer(undefined, {});

@@ -1,10 +1,6 @@
-import React from 'react';
-
-import mockAxios from 'axios';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
-import moxio from 'moxios';
 import {
   fetchJobData,
   setCityLocation,
@@ -13,11 +9,8 @@ import {
   setBubbleColor,
   setQuickColor,
   setMergeColor,
-  //   setlocationSubmitted,
   setButtonColor,
-  //   setMessage,
-} from './';
-import moxios from 'moxios';
+} from '../../actions';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);

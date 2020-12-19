@@ -1,4 +1,4 @@
-import fetchJobData from './fetchJobDataReducer';
+import fetchJobData from '../../reducers/fetchJobDataReducer';
 
 describe('fetchJobDataReducer', () => {
   let state;
@@ -13,12 +13,12 @@ describe('fetchJobDataReducer', () => {
     };
   });
 
-  test('fetchJobData returns default initial state when an action is passed', () => {
+  it('fetchJobData returns default initial state when an action is passed', () => {
     const newState = fetchJobData(undefined, {});
     expect(newState).toEqual(state);
   });
 
-  test('fetchJobDataReducer returns loading true upon receiving an action of type "TOGGLE_LOADING"', () => {
+  it('fetchJobDataReducer returns loading true upon receiving an action of type "TOGGLE_LOADING"', () => {
     state.loading = true;
     const newState = fetchJobData(undefined, {
       type: 'TOGGLE_LOADING',
@@ -26,7 +26,7 @@ describe('fetchJobDataReducer', () => {
     expect(newState).toEqual(state);
   });
 
-  test('fetchJobDataReducer returns new state and updated jobDataCopy upon receiving an action of type "STORE_VALUE"', () => {
+  it('fetchJobDataReducer returns new state and updated jobDataCopy upon receiving an action of type "STORE_VALUE"', () => {
     state.locationSubmitted = true;
     state.jobDataCopy = [
       ['JavaScript', 33.33, 0],
@@ -43,7 +43,7 @@ describe('fetchJobDataReducer', () => {
     expect(newState).toEqual(state);
   });
 
-  test('fetchJobDataReducer returns error state upon receiving an action of type "FETCH_ERROR"', () => {
+  it('fetchJobDataReducer returns error state upon receiving an action of type "FETCH_ERROR"', () => {
     state.error = true;
     state.message = "Error loading location's data";
     const newState = fetchJobData(undefined, {

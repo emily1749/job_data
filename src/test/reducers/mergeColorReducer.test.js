@@ -1,4 +1,4 @@
-import mergeColorReducer from './mergeColorReducer';
+import mergeColorReducer from '../../reducers/mergeColorReducer';
 
 test('mergeColorReducer returns default initial state of "" when an action is passed', () => {
   const newState = mergeColorReducer(undefined, {});

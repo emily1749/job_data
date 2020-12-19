@@ -1,9 +1,7 @@
-//DONE GOOD :)
-
 import React from 'react';
 import { mount } from 'enzyme';
 
-import InfoBox from './InfoBox';
+import InfoBox from '../../components/InfoBox';
 
 const wrapper = mount(<InfoBox />);
 

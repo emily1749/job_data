@@ -1,4 +1,4 @@
-import buttonColorReducer from './buttonColorReducer';
+import buttonColorReducer from '../../reducers/buttonColorReducer';
 
 test('buttonColorReducer returns default initial state of "" when an action is passed', () => {
   const newState = buttonColorReducer(undefined, {});

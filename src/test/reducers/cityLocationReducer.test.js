@@ -1,4 +1,4 @@
-import cityLocationReducer from './cityLocationReducer';
+import cityLocationReducer from '../../reducers/cityLocationReducer';
 
 test('cityLocationReducer returns default initial state of "" when an action is passed', () => {
   const newState = cityLocationReducer(undefined, {});
