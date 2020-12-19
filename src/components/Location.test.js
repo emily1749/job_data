@@ -45,29 +45,29 @@ describe('Location Component', () => {
     expect(wrapper.length).toBe(1);
   });
 
-  it('should return city when setCityLocation is dispatched', () => {
-    let userCityLocation = 'Worcester';
-    store.dispatch(actionCreators.setCityLocation(userCityLocation));
-    const actions = store.getActions();
-    const expectedPayload = {
-      type: 'CITY_LOCATION',
-      payload: userCityLocation,
-    };
+  // it('should return city when setCityLocation is dispatched', () => {
+  //   let userCityLocation = 'Worcester';
+  //   store.dispatch(actionCreators.setCityLocation(userCityLocation));
+  //   const actions = store.getActions();
+  //   const expectedPayload = {
+  //     type: 'CITY_LOCATION',
+  //     payload: userCityLocation,
+  //   };
 
-    expect(actions).toEqual([expectedPayload]);
-  });
+  //   expect(actions).toEqual([expectedPayload]);
+  // });
 
-  it('should return state when setStateLocation is dispatched', () => {
-    let userStateLocation = 'Massachusetts';
-    store.dispatch(actionCreators.setStateLocation(userStateLocation));
-    const actions = store.getActions();
-    const expectedStatePayload = {
-      type: 'STATE_LOCATION',
-      payload: userStateLocation,
-    };
+  // it('should return state when setStateLocation is dispatched', () => {
+  //   let userStateLocation = 'Massachusetts';
+  //   store.dispatch(actionCreators.setStateLocation(userStateLocation));
+  //   const actions = store.getActions();
+  //   const expectedStatePayload = {
+  //     type: 'STATE_LOCATION',
+  //     payload: userStateLocation,
+  //   };
 
-    expect(actions[1]).toEqual(expectedStatePayload);
-  });
+  //   expect(actions[1]).toEqual(expectedStatePayload);
+  // });
 
   it('execute onCityInputChange onChange of user city location', () => {
     let cityLocation = 'Worcester';

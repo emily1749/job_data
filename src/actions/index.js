@@ -2,12 +2,12 @@ import jobData from '../api/jobData';
 
 export const fetchJobData = (city, state) => dispatch => {
   dispatch({ type: 'TOGGLE_LOADING' });
-  jobData
+  return jobData
     .get(`${city}/${state}`)
     .then(value => {
       console.log('no error');
       dispatch({ type: 'STORE_VALUE', payload: value.data });
-      dispatch({ type: 'COPY_VALUE', payload: value.data });
+      // dispatch({ type: 'COPY_VALUE', payload: value.data });
     })
     .catch(error => {
       console.log('error');
